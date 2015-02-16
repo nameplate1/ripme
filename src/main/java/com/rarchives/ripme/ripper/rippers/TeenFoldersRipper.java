@@ -71,7 +71,7 @@ public class TeenfoldersRipper extends AbstractHTMLRipper {
 	@Override
 	public List<String> getURLsFromPage( Document doc ) {
 		List<String> imageURLs = new ArrayList<String>();
-		for ( Element thumb : doc.select( "div > a[target=_blank]:not(.footera)" ) ) {
+		for ( Element thumb : doc.select( "#photoGallery a" ) ) {
 			imageURLs.add( thumb.attr( "href" ) );
 		}
 		return imageURLs;
@@ -103,5 +103,5 @@ public class TeenfoldersRipper extends AbstractHTMLRipper {
 		}
 		return super.getAlbumTitle( url );
 	}
-	
+
 }
